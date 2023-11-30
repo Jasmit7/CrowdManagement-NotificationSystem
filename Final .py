@@ -86,13 +86,13 @@ def detect_people(frame, net, ln, personIdx=0):
     return results
 
 # load the COCO class labels our YOLO model was trained on
-labelsPath = "C:/Users/Jasmit/Desktop/Mini Project/Crowd-Analysis/model_data/coco/coco.names"
+labelsPath = "coco.names"
 
 LABELS = open(labelsPath).read().strip().split("\n")
 
 # derive the paths to the YOLO weights and model configuration
-weightsPath = "yolov4.weights"
-configPath = "yolov4_new.cfg"
+weightsPath = "yolov4-tiny.weights"
+configPath = "yolov4-tiny.cfg"
 
 # load our YOLO object detector trained on COCO dataset (80 classes)
 print("[INFO] loading YOLO from disk...")
@@ -105,7 +105,7 @@ ln = [ln[i - 1] for i in net.getUnconnectedOutLayers()]
 # initialize the video stream and pointer to output video file
 print("[INFO] accessing video stream...")
 # vs = cv2.VideoCapture(args["input"] if args["input"] else 0)
-vs = cv2.VideoCapture("4.mp4")
+vs = cv2.VideoCapture("1.mp4")
 
 # loop over the frames from the video stream
 while True:
